@@ -29,12 +29,13 @@ final class CalculatorTests: XCTestCase {
         calculator.didPress(operator: "+")
         calculator.didPress(number: "1")
         calculator.didPress(operator: "=")
+        calculator.didPress(number: "2")
 
         // THEN
         XCTAssertEqual(delegate.text, "1+1=2")
     }
     
-    func testGivenACalculator_WhenDistration_ThenCorrectExpressionIsReturned() {
+    func testGivenACalculator_WhenDistraction_ThenCorrectExpressionIsReturned() {
         // GIVEN
         calculator.delegate = delegate
         
@@ -43,6 +44,7 @@ final class CalculatorTests: XCTestCase {
         calculator.didPress(operator: "-")
         calculator.didPress(number: "1")
         calculator.didPress(operator: "=")
+        calculator.didPress(number: "0")
 
         // THEN
         XCTAssertEqual(delegate.text, "1-1=0")
@@ -57,9 +59,10 @@ final class CalculatorTests: XCTestCase {
         calculator.didPress(operator: "*")
         calculator.didPress(number: "2")
         calculator.didPress(operator: "=")
+        calculator.didPress(number: "4")
 
         // THEN
-        XCTAssertEqual(delegate.text, "2+2=4")
+        XCTAssertEqual(delegate.text, "2*2=4")
     }
     
     func testGivenACalculator_WhenDivision_ThenCorrectExpressionIsReturned() {
@@ -71,6 +74,7 @@ final class CalculatorTests: XCTestCase {
         calculator.didPress(operator: "/")
         calculator.didPress(number: "2")
         calculator.didPress(operator: "=")
+        calculator.didPress(number: "2")
 
         // THEN
         XCTAssertEqual(delegate.text, "4/2=2")
